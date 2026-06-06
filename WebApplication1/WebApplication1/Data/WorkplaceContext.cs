@@ -9,10 +9,12 @@ namespace Projekt.Data
         { }
 
         public DbSet<Employee> Employees { get; set; }
+        public DbSet<JobPositions> JobPositions { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Employee>().ToTable("Employee");
+            modelBuilder.Entity<JobPositions>().ToTable("JobPositions");
         }
     }
 }
