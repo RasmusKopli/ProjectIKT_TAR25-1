@@ -23,6 +23,9 @@
 				<td>@employee.Position</td>
 				<td>@employee.Reputation</td>
 				<td>@employee.Wage</td>
+				<td>
+					<a asp-action="Details" asp-route-id="@employee.Id">Details</a>
+				</td>
 			</tr>
 		}
 	</tbody>
