@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Projekt.Models.Employee>
+
+@{
+	ViewData["Title"] = "Employees";
+}
+
+<h1>Employees</h1>
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Position</th>
+			<th>Reputation</th>
+			<th>Wage</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var employee in Model)
+		{
+			<tr>
+				<td>@employee.Name</td>
+				<td>@employee.Position</td>
+				<td>@employee.Reputation</td>
+				<td>@employee.Wage</td>
+			</tr>
+		}
+	</tbody>
+</table>
