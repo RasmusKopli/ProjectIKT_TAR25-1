@@ -2,7 +2,17 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about</p>
+<div class="text-align:center; padding: 60px 20px">
+    <h1>Cynosure</h1>
+    <p style="font: 1.2rem; color:gray; max-width:600px; margin:auto;">
+        A simple and efficient employee managmentsystem.
+        View, manage and track your workforce all in one place.
+    </p>
+
+    <div style="margin-top:40px; display:flex; flex-direction:column; align-items:center; gap:10px;">
+        <a asp-controller="Employee" asp-action="Index" class="btn btn-primary btn-lg" style="width:200px;">View Employees
+        </a>
+        <a asp-controller="Home" asp-action="Privacy" class="btn btn-outline-secondary btn-lg" style="width:200px;">Privacy
+        </a>
+    </div>
 </div>
