@@ -1,0 +1,37 @@
+﻿@model Projekt.ViewModels.JobPositionVM.JobPositionCreateViewModel
+
+@{
+	ViewData["Title"] = "Create Job Position";
+}
+
+<h1>Create Job Position</h1>
+
+<form asp-action="Create" method="post">
+	@Html.AntiForgeryToken()
+
+	<div class="mb-3">
+		<label asp-for="JobName" class="form-label"></label>
+		<input asp-for="JobName" class="form-control" />
+		<span asp-validation-for="JobName" class="text-danger"></span>
+	</div>
+
+	<div class="mb-3">
+		<label asp-for="JobId" class="form-label"></label>
+		<input asp-for="JobId" class="form-control" />
+		<span asp-validation-for="JobId" class="text-danger"></span>
+	</div>
+
+	<div class="mb-3">
+		<label asp-for="Salary" class="form-label"></label>
+		<input asp-for="Salary" class="form-control" />
+		<span asp-validation-for="Salary" class="text-danger"></span>
+	</div>
+
+	<div class="mb-3">
+		<label asp-for="IsAvailable" class="form-label"></label>
+		<input asp-for="IsAvailable" class="form-check-input"/>
+	</div>
+
+	<button type="submit" class="btn btn-primary">Create</button>
+	<a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>

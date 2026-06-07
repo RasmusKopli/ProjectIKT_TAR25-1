@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Projekt.Data;
+using Projekt.Migrations;
 using Projekt.Models;
 using Projekt.ViewModels.JobPositionVM;
 
@@ -29,6 +30,34 @@ namespace Projekt.Controllers
             if (position == null) return NotFound();
 
             return View(position);
+        }
+
+        public IActionResult Create()
+        {
+            return View(new JobPositionCreateViewModel());
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(JobPositionCreateViewModel viewModel)
+        {
+            if (ModelState.IsValid)
+            {
+                var position = new JobPositions
+                {
+                    JobName = viewModel.JobName,
+                    JobId = viewModel.JobId,
+                    Salary = viewModel.Salary,
+                    IsAvailable = viewModel.IsAvailable
+                };
+
+                _context.JobPositions.Add(position);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+
+            }
+
+            return View(viewModel);
         }
 
         public async Task<IActionResult> Apply(int? id)
