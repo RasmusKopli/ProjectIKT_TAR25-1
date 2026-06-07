@@ -104,5 +104,88 @@ namespace Projekt.Controllers
             viewModel.JobPositions = new SelectList(_context.JobPositions, "Id", "JobName", viewModel.JobPositionId);
             return View(viewModel);
         }
+
+        public async Task<IActionResult> Delete(int? id)
+        {
+            var employee = await _context.Employees
+                .Include(e => e.JobPosition)
+                .FirstOrDefaultAsync(m => m.Id == id);
+
+            if (employee == null) return NotFound();
+
+            return View(employee);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var employee = await _context.Employees
+                .Include(e => e.JobPosition).
+                FirstOrDefaultAsync(e => e.Id == id);
+
+            if (employee != null)
+            {
+                if (employee != null)
+                    employee.JobPosition.IsAvailable = true;
+
+                _context.Employees.Remove(employee);
+                await _context.SaveChangesAsync();
+            }
+
+            return RedirectToAction(nameof(Index));
+        }
+
+        public IActionResult Create()
+        {
+            var viewModel = new EmployeeCreateViewModel
+            {
+                JobPositions = new SelectList(_context.JobPositions, "Id", "JobName")
+            };
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(EmployeeCreateViewModel viewModel)
+        {
+            foreach (var entry in ModelState)
+            {
+                foreach (var error in entry.Value.Errors)
+                {
+                    Console.WriteLine($"{entry.Key}: {error.ErrorMessage}");
+                }
+            }
+
+            if (ModelState.IsValid)
+            {
+                var employee = new Employee
+                {
+                    Name = viewModel.Name,
+                    Reputation = viewModel.Reputation,
+                    Wage = viewModel.Wage,
+                    JobPositionId = viewModel.JobPositionId
+                };
+
+                if (viewModel.JobPositionId.HasValue)
+                {
+                    var job = await _context.JobPositions.FindAsync(viewModel.JobPositionId.Value);
+                    if (job != null)
+                    {
+                        employee.JobPosition = job;
+                        employee.Position = job.JobName;
+                        job.IsAvailable = false;
+                        _context.JobPositions.Update(job);
+                    }
+                }
+
+                _context.Employees.Add(employee);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+
+            viewModel.JobPositions = new SelectList(_context.JobPositions, "Id", "JobName", viewModel.JobPositionId);
+            return View(viewModel);
+        }
     }
 }
