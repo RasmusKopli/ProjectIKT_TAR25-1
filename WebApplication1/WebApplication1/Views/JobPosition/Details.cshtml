@@ -1,0 +1,23 @@
+﻿@model Projekt.Models.JobPositions
+
+@{
+	ViewData["Title"] = "Job Position Details";
+}
+
+<h1>Job Position Details</h1>
+
+<d1 class="row">
+	<dt class="col-sm-2">Job Name</dt>
+	<dd class="col-sm-10">@Model.JobName</dd>
+
+	<dt class="col-sm-2">Job ID</dt>
+	<dd class="col-sm-10">@Model.JobId</dd>
+
+	<dt class="col-sm-2">Salary</dt>
+	<dd class="col-sm-10">@Model.Salary</dd>
+
+	<dt class="col-sm-12">Available</dt>
+	<dd class="col-sm-10">@Model.IsAvailable</dd>
+</d1>
+
+<a asp-action="Index" class="btn btn-secondary">Back to List</a>

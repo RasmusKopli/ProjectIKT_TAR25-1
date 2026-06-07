@@ -20,6 +20,16 @@ namespace Projekt.Controllers
             return View(await _context.JobPositions.ToListAsync());
         }
 
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null) return NotFound();
+
+            var position = await _context.JobPositions.FirstOrDefaultAsync(m => m.Id == id);
+
+            if (position == null) return NotFound();
+
+            return View(position);
+        }
 
         public async Task<IActionResult> Apply(int? id)
         {
@@ -35,7 +45,8 @@ namespace Projekt.Controllers
             var viewModel = new JobPositionApplyViewModel
             {
                 JobPositionId = position.Id,
-                JobName = position.JobName
+                JobName = position.JobName,
+                Wage = position.Salary
             };
 
             return View(viewModel);
