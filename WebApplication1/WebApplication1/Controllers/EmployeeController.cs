@@ -60,7 +60,10 @@ namespace Projekt.Controllers
                 Reputation = employee.Reputation,
                 Wage = employee.Wage,
                 JobPositionId = employee.JobPositionId,
-                JobPositions = new SelectList(_context.JobPositions, "Id", "JobName", employee.JobPositionId)
+                JobPositions = new SelectList(
+                _context.JobPositions.Where(j => j.IsAvailable || j.Id == employee.JobPositionId),
+                "Id", "JobName",
+                employee.JobPositionId)
             };
 
             return View(viewModel);
@@ -140,7 +143,7 @@ namespace Projekt.Controllers
         {
             var viewModel = new EmployeeCreateViewModel
             {
-                JobPositions = new SelectList(_context.JobPositions, "Id", "JobName")
+                JobPositions = new SelectList(_context.JobPositions.Where(j => j.IsAvailable), "Id", "JobName")
             };
             return View(viewModel);
         }
