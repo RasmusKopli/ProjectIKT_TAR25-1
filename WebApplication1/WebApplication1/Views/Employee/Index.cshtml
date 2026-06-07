@@ -20,11 +20,13 @@
 		{
 			<tr>
 				<td>@employee.Name</td>
-				<td>@employee.Position</td>
+				<td>@(employee.JobPosition != null ? employee.JobPosition.JobName : employee.Position)</td>
 				<td>@employee.Reputation</td>
 				<td>@employee.Wage</td>
 				<td>
 					<a asp-action="Details" asp-route-id="@employee.Id">Details</a>
+					<a asp-action="Edit" asp-route-id="@employee.Id" class="btn btn-sm btn-warning">Edit</a>
+					<a asp-action="Delete" asp-route-id="@employee.Id" class="btn btn-sm btn-danger">Delete</a>
 				</td>
 			</tr>
 		}

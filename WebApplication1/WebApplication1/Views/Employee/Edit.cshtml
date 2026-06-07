@@ -1,0 +1,31 @@
+﻿@model Projekt.ViewModels.EmployeeVM.EmployeeEditViewModel
+
+@{
+	ViewData["Title"] = "Edit Employee";
+}
+
+<h1>Edit Employee</h1>
+
+<form asp-action="Edit">
+	<input type="hidden" asp-for="Id" />
+
+	<div class="mb-3">
+		<label asp-for="Name" class="form-label"></label>
+		<input asp-for="Name" class="form-control" />
+	</div>
+	<div class="mb-3">
+		<label asp-for="JobPositionId" class="form-label"></label>
+		<select asp-for="JobPositionId" asp-items="Model.JobPositions" class="form-control">
+			<option value="">--  Select Job Position --</option>
+		</select>
+	</div>
+	<div class="mb-3">
+		<label asp-for="Reputation" class="form-label"></label>
+		<input asp-for="Reputation" class="form-control" />
+	</div>
+	<div class="mb-3">
+		<label asp-for="Wage" class="form-label"></label>
+		<input asp-for="Wage" class="form-control" />
+	</div>
+	<button type="submit" class="btn btn-primary">Save</button>
+</form>
