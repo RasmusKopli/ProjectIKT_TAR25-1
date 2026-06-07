@@ -34,12 +34,13 @@ namespace Projekt.Data
 
             var jobposition = new JobPositions[]
             {
-                new JobPositions{JobName="Marketing",JobId=112,Salary=1483,IsAvailable=true},
+                new JobPositions{JobName="Marketing",JobId=112,Salary=1483,IsAvailable=false},
                 new JobPositions{JobName="Deliveries",JobId=241,Salary=2650,IsAvailable=false},
                 new JobPositions{JobName="Security Guard",JobId=332,Salary=1350,IsAvailable=false},
-                new JobPositions{JobName="Customer Support",JobId=424,Salary=2100,IsAvailable=true},
+                new JobPositions{JobName="Customer Support",JobId=424,Salary=2100,IsAvailable=false},
                 new JobPositions{JobName="Manager",JobId=542,Salary=5000,IsAvailable=false},
-                new JobPositions{JobName="Programmer",JobId=675,Salary=3100,IsAvailable=true}
+                new JobPositions{JobName="Programmer",JobId=675,Salary=3100,IsAvailable=false},
+                new JobPositions{JobName="Janitor",JobId=789,Salary=1200,IsAvailable=true}
             };
             foreach (JobPositions j in jobposition)
             {
