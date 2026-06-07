@@ -7,12 +7,9 @@ namespace Projekt.Data
         public static void Initialize(WorkplaceContext context)
         {
 
-            if (context.Employees.Any())
+            if (!context.Employees.Any())
             {
-                return;
-            }
-
-            var employees = new Employee[]
+                var employees = new Employee[]
             {
                 new Employee{Name="Carl Johnson",Position="Marketing",Reputation="Decent",Wage=1483},
                 new Employee{Name="James Bond",Position="Deliveries",Reputation="Very Good",Wage=2650},
@@ -26,13 +23,11 @@ namespace Projekt.Data
                 context.Employees.Add(e);
             }
             context.SaveChanges();
+            }
 
             if (!context.JobPositions.Any())
             {
-                return;
-            }
-
-            var jobposition = new JobPositions[]
+                var jobposition = new JobPositions[]
             {
                 new JobPositions{JobName="Marketing",JobId=112,Salary=1483,IsAvailable=false},
                 new JobPositions{JobName="Deliveries",JobId=241,Salary=2650,IsAvailable=false},
@@ -47,6 +42,7 @@ namespace Projekt.Data
                 context.JobPositions.Add(j);
             }
             context.SaveChanges();
+            }
         }
     }
 }

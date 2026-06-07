@@ -54,6 +54,7 @@ namespace WebApplication1
                 {
                     var logger = services.GetRequiredService<ILogger<Program>>();
                     logger.LogError(ex, "An error occoured creating the DB");
+                    throw;
                 }
             }
         }
