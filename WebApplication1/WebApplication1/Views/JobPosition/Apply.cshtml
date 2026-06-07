@@ -1,0 +1,34 @@
+﻿@model Projekt.ViewModels.JobPositionVM.JobPositionApplyViewModel
+
+@{
+	ViewData["Title"] = "Apply for Job Position";
+}
+
+<h1>Apply for @Model.JobName</h1>
+
+<form asp-action="Apply" method="post">
+	@Html.AntiForgeryToken()
+	<input type="hidden" asp-for="JobPositionId" />
+	<input type="hidden" asp-for="JobName" />
+
+	<div class="mb-3">
+		<label asp-for="Name" class="form-label"></label>
+		<input asp-for="Name" class="form-control" />
+		<span asp-validation-for="Name" class="text-danger"></span>
+	</div>
+
+	<div class="mb-3"
+	<label asp-for="Reputation" class="form-label"></label>
+	<input asp-for="Reputation" class="form-control" />
+	<span asp-validation-for="Reputation" class="text-danger"></span>
+	</div>
+
+	<div class="mb-3">
+		<label asp-for="Wage" class="form-label"></label>
+		<input asp-for="Wage" class="form-control" />
+		<span asp-validation-for="Wage" class="text-danger"></span>
+	</div>
+
+	<button type="submit" class="btn btn-primary">Apply</button>
+	<a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>
