@@ -76,10 +76,10 @@ Jälgige koodi täitmist siluja (debugger) kaudu.
 
 Kontrollige rakenduse käitumist töökohtade määramisel ja eemaldamisel.
 
-Teadaolevad piirangud
-Töökoha kustutamisel võib töötajale siiski jääda viide kustutatud ametikohale.
+<h1>Teadaolevad piirangud</h1>
+Töökoha kustutamisel võib minna Internal Server Error'isse ja ei lase kustutada ametikohta, ilma töötaja kustutamisetta enne
 
-Andmebaasi järjepidevuse (consistency) tagamiseks võib vaja minna täiendavat valideerimis- ja puhastusloogikat.
+Kood vajab jätkavat hoiatust, et amet, mida kustutad ütleb, et keegi ikka töötab seal või kustutab ametit koos temaga (Võib ka võibolla ka mõlemat teha)
 
 
 <h1>Projekti autor:</h1> Ainult mina
