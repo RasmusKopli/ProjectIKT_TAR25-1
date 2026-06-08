@@ -82,7 +82,7 @@ Töökoha kustutamisel võib töötajale siiski jääda viide kustutatud ametiko
 Andmebaasi järjepidevuse (consistency) tagamiseks võib vaja minna täiendavat valideerimis- ja puhastusloogikat.
 
 
-<h1>Projekti autor:</h1> ainult mina
+<h1>Projekti autor:</h1> Ainult mina
 
 Projekti eesmärk
 See projekt demonstreerib, kuidas hallata töötajate ja töökohtade vahelisi seoseid andmebaasipõhises veebirakenduses, jõustades samal ajal töökohtade saadavuse reegleid ja takistades topeltmääramisi.
