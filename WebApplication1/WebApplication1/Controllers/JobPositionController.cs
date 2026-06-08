@@ -29,7 +29,16 @@ namespace Projekt.Controllers
 
             if (position == null) return NotFound();
 
-            return View(position);
+            var viewModel = new JobPositionDetailsViewModel
+            {
+                Id = position.Id,
+                JobName = position.JobName,
+                JobId = position.JobId,
+                Salary = position.Salary,
+                IsAvailable = position.IsAvailable
+            };
+
+            return View(viewModel);
         }
 
         public IActionResult Create()
