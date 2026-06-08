@@ -69,6 +69,41 @@ namespace Projekt.Controllers
             return View(viewModel);
         }
 
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null) return NotFound();
+
+            var position = await _context.JobPositions.FirstOrDefaultAsync(m => m.Id == id);
+
+            if (position == null) return NotFound();
+
+            var viewModel = new JobPositionDeleteViewModel
+            {
+                Id = position.Id,
+                JobName = position.JobName,
+                JobId = position.JobId,
+                Salary = position.Salary,
+                IsAvailable = position.IsAvailable
+            };
+
+            return View(viewModel);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var position = await _context.JobPositions.FindAsync(id);
+
+            if (position != null)
+            {
+                _context.JobPositions.Remove(position);
+                await _context.SaveChangesAsync();
+            }
+
+            return RedirectToAction(nameof(Index));
+        }
+
         public async Task<IActionResult> Apply(int? id)
         {
             if (id == null) return NotFound();
