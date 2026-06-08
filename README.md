@@ -84,5 +84,5 @@ Andmebaasi järjepidevuse (consistency) tagamiseks võib vaja minna täiendavat 
 
 <h1>Projekti autor:</h1> Ainult mina
 
-Projekti eesmärk
+<h1>Projekti eesmärk</h1>
 See projekt demonstreerib, kuidas hallata töötajate ja töökohtade vahelisi seoseid andmebaasipõhises veebirakenduses, jõustades samal ajal töökohtade saadavuse reegleid ja takistades topeltmääramisi.
