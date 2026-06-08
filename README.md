@@ -1,10 +1,10 @@
 # ProjectIKT_TAR25-1
 
-Ülevaade
+<h1>Ülevaade</h1>
 ProjektIKT_TAR25-1 on veebirakendus, mis on loodud platvormiga ASP.NET Core ja programmeerimiskeelega C#. Rakendus on ühendatud kohaliku SQL Serveri andmebaasiga ning demonstreerib, kuidas hallata töökohti, takistades samal ajal mitmel töötajal sama ametikohta täitmast.
 Põhifunktsionaalsus tagab, et kui töökoht on juba töötajale määratud, märgitakse see automaatselt kättesaamatuks ning seda ei saa teisele töötajale määrata.
 
-Kasutatud tehnoloogiad
+<h1>Kasutatud asjad</h1>
 C#
 
 ASP.NET Core
@@ -13,7 +13,7 @@ Entity Framework Core
 
 SQL Server Express (kohalik andmebaas)
 
-Funktsioonid
+<h1>Funktsioonid</h1>
 Töötajate loomine ja haldamine.
 
 Töökohtade loomine ja haldamine.
@@ -28,7 +28,7 @@ Töötajate andmete ja määratud töökohtade uuendamine.
 
 Andmebaasi seoste ja valideerimisloogika demonstreerimine.
 
-Andmebaasi seadistamine
+<h1>Andmebaasi seadistamine</h1>
 Enne rakenduse käivitamist seadistage andmebaasi ühendussõne failis appsettings.json.
 Ühendussõne näide:
 
@@ -38,7 +38,7 @@ JSON:
     "WorkplaceContext": "Server=.\\SQLEXPRESS;Database=WorkplaceDB;Trusted_Connection=True;TrustServerCertificate=True;"
 }
 
-Nõuded:
+<h1>Nõuded:</h1>
 
 SQL Server Express on paigaldatud.
 
@@ -46,8 +46,8 @@ SQLEXPRESS-i instants töötab.
 
 Andmebaas on loodud või migratsioonid on rakendatud.
 
-Paigaldamine
-Kloonige hoidla (repository).
+<h1>Paigaldamine</h1>
+Kloonige repo (repository).
 
 Avage lahendus (solution) Visual Studios.
 
@@ -81,8 +81,8 @@ Töökoha kustutamisel võib töötajale siiski jääda viide kustutatud ametiko
 
 Andmebaasi järjepidevuse (consistency) tagamiseks võib vaja minna täiendavat valideerimis- ja puhastusloogikat.
 
-Autor
-Projekti autor: ainult mina
+
+<h1>Projekti autor:</h1> ainult mina
 
 Projekti eesmärk
 See projekt demonstreerib, kuidas hallata töötajate ja töökohtade vahelisi seoseid andmebaasipõhises veebirakenduses, jõustades samal ajal töökohtade saadavuse reegleid ja takistades topeltmääramisi.
